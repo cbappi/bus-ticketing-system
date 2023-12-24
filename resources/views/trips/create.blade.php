@@ -8,7 +8,7 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <form action="{{ route('trips.store') }}" method="POST">
+        <form action="{{ route('trip.store') }}" method="POST">
 
             @csrf
 
@@ -40,6 +40,7 @@
 
 
             <button type="submit" class="btn btn-primary">Create Trip</button>
+            <a class = "btn button btn-primary" href="{{ route('trip.tripdetails') }}">Back to Trip Details</a>
         </form>
     </div>
 @endsection

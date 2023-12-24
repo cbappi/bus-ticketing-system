@@ -8,7 +8,7 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <form action="{{ route('trips.update', $trip->id) }}" method="POST">
+        <form action="{{ route('trip.update', $trip->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -37,7 +37,7 @@
                 <input type="time" id="start_time" name="start_time" class="form-control" value="{{ $trip->start_time }}">
             </div>
 
-       
+
 
             <button type="submit" class="btn btn-primary">Update Trip</button>
         </form>

@@ -38,7 +38,7 @@ class TripController extends Controller
         ]);
 
         Trip::create($request->all());
-        return redirect()->route('trips.index');
+        return redirect()->route('trip.index');
 
        // return redirect()->route('trips.index')->with('success', 'Trip created successfully.');
     }

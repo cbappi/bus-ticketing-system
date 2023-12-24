@@ -7,12 +7,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TripController;
-use App\Http\Controllers\SeatAllocationController;
-
 use App\Http\Controllers\CommentController;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SeatAllocationController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -49,7 +50,14 @@ Route::get('/subjects', [SubjectController::class, 'index']);
 //Route::get('/trip', [TripController::class, 'index'])->name('trip.index');
 
 Route::get('/', [TripController::class, 'index'])->name('trip.index');
+Route::get('/trip/create', [TripController::class, 'create'])->name('trip.create');
+Route::post('/trip/store', [TripController::class, 'store'])->name('trip.store');
+Route::get('/trip/edit/{id}', [TripController::class, 'edit'])->name('trip.edit');
+Route::put('/trip/update/{id}', [TripController::class, 'update'])->name('trip.update');
+Route::get('/trip/destroy/{id}', [TripController::class, 'destroy'])->name('trip.destroy');
+Route::get('/trip/tripdetails', [TripController::class, 'tripdetails'])->name('trip.tripdetails');
 Route::post('/trip/search', [TripController::class, 'search'])->name('trip.search');
-Route::resource('seat-allocations', SeatAllocationController::class);//
+Route::resource('seat-allocations', SeatAllocationController::class);
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
 

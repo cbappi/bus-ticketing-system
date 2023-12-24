@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,4 +40,26 @@ class SeatAllocation extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::created(function ($seatAllocation) {
+    //         // Create a corresponding user entry
+    //         $user = User::create([
+    //             'name' => $seatAllocation->name,
+    //             'phone' => $seatAllocation->phone,
+    //             // Add other user fields if needed
+    //             'password' => Hash::make($seatAllocation->phone), // Default password based on phone number (you may want to change this)
+    //         ]);
+
+    //         // Associate the user with the seat allocation
+    //         $seatAllocation->user_id = $user->id;
+    //         $seatAllocation->save();
+    //     });
+    //}
+
+    // Relationship with User model
+
 }
