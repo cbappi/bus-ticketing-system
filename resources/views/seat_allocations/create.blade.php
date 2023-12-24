@@ -3,7 +3,7 @@
 @extends('master')
 
 @section('content')
-    <h1>Create Seat Allocation</h1>
+    <h2>Create Ticket Booking</h2>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -28,28 +28,40 @@
         <label for="trip_date">Trip Date:</label>
         <input type="date" name="trip_date" required>
 
-        <label for="name">Name:</label>
-        <input type="text" name="name" required>
+        <div class="mb-2">
+            {{-- <label for="disabledTextInput" class="form-label">Passenger name</label> --}}
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="Passenger name" name="name" required>
+        </div>
 
-        <label for="phone">Phone:</label>
-        <input type="text" name="phone" required>
+        <div class="mb-2">
+            {{-- <label for="disabledTextInput" class="form-label">Passenger phone</label> --}}
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="Passenger phone" name="phone" required>
+        </div>
 
-        <label for="destination">Destination:</label>
-        <input type="text" name="destination" required>
+        <div class="mb-2">
+            {{-- <label for="disabledSelect" class="form-label">Select destination</label> --}}
+            <select id="disabledSelect" class="form-select" name="destination" required>
+              <option>Dhak to Coxsbazar</option>
+              <option>Coxsbazar to Dhaka</option>
+            </select>
+          </div>
 
-        <label for="ticket_quantity">Ticket Quantity:</label>
-        <input type="number" name="ticket_quantity" required>
 
-        <label for="price">Price:</label>
-        <input type="number" name="price" required>
+        <div class="mb-2">
+            {{-- <label for="disabledTextInput" class="form-label">Ticket quantity</label> --}}
+            <input type="number" id="disabledTextInput" class="form-control" placeholder="Ticket quantity" name="ticket_quantity" required>
+        </div>
 
-        <label for="amount">Amount:</label>
-        <input type="number" name="amount" required>
 
-        <label for="bus_start_time">Bus Start Time:</label>
-        <input type="time" name="bus_start_time" required>
+        <div class="mb-2">
+            {{-- <label for="disabledTextInput" class="form-label">Ticket quantity</label> --}}
+            <input type="number" id="disabledTextInput" class="form-control" placeholder="Ticket price" name="price" required>
+        </div>
 
-      
+        <div class="mb-2">
+            {{-- <label for="disabledTextInput" class="form-label">Buss start time</label> --}}
+            <input type="time" id="disabledTextInput" class="form-control" placeholder="Buss start time" name="bus_start_time" required>
+        </div>
 
         <button type="submit">Create Seat Allocation</button>
     </form>

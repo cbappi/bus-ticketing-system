@@ -7,8 +7,9 @@
     <table class = "table">
         <thead>
             <tr>
-                <th>Trip</th>
-                <th>Date</th>
+                <th>Trip id</th>
+                <th>Trip destination</th>
+                <th>Trip Date</th>
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Destination</th>
@@ -22,6 +23,7 @@
         <tbody>
             @forelse($seatAllocations as $seatAllocation)
                 <tr>
+                    <td>{{ $seatAllocation->trip_id }}</td>
                     <td>{{ $seatAllocation->trip->from }} to {{ $seatAllocation->trip->to }}</td>
                     <td>{{ $seatAllocation->trip_date }}</td>
                     <td>{{ $seatAllocation->name }}</td>

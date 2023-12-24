@@ -33,7 +33,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 //Route::resource('trips', TripController::class);
 //Route::resource('allocation', SeatAllocationController::class);
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+//Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/book-ticket/{trip}', [HomeController::class, 'bookTicket'])->name('bookTicket');
 
 
@@ -46,7 +46,9 @@ Route::get('/subjects', [SubjectController::class, 'index']);
 
 
 
-Route::get('/trip', [TripController::class, 'index'])->name('trip.index');
+//Route::get('/trip', [TripController::class, 'index'])->name('trip.index');
+
+Route::get('/', [TripController::class, 'index'])->name('trip.index');
 Route::post('/trip/search', [TripController::class, 'search'])->name('trip.search');
 Route::resource('seat-allocations', SeatAllocationController::class);//
 

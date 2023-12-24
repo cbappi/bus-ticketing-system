@@ -57,11 +57,24 @@ class SeatAllocationController extends Controller
             'destination' => 'required',
             'ticket_quantity' => 'required|integer|max_tickets:' . $request->trip_id, // Custom validation rule
             'price' => 'required|integer',
-            'amount' => 'required|integer',
+            //'amount' => 'required|integer',
             'bus_start_time' => 'nullable',
         ]);
 
-        $seatAllocation = SeatAllocation::create($request->all());
+        $seatAllocation = SeatAllocation::create([
+            'trip_id' => $request->trip_id,
+            'trip_date' => $request->trip_date,
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'destination' => $request->destination,
+            'ticket_quantity' => $request->ticket_quantity,
+            'price' => $request->price,
+            'amount' =>$request->ticket_quantity*$request->price,
+            'bus_start_time' => $request->bus_start_time,
+        ]);
+
+
+       //$seatAllocation = SeatAllocation::create($request->all());
 
         // Update the sit_quantity in the trips table
         $trip = Trip::find($request->trip_id);
